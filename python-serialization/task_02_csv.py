@@ -5,7 +5,7 @@ import json
 
 
 def convert_csv_to_json(csv_filename):
-    """ convert csv to json """
+    """ convert csv to json"""
     try:
         with open(csv_filename, "r", encoding="utf-8") as csv_file:
             csv_reader = csv.DictReader(csv_file)
@@ -13,6 +13,8 @@ def convert_csv_to_json(csv_filename):
 
         with open("data.json", "w", encoding="utf-8") as json_file:
             json.dump(data, json_file)
+
+        return True
 
     except FileNotFoundError:
         return False
