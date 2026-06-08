@@ -20,8 +20,8 @@ if __name__ == "__main__":
     cur.execute(
         "SELECT * FROM states ORDER BY id ASC"
         )  # j'écris ma requête avec le stylo
-    rows = cur.fetchall()
-    for row in rows:
-        print(row)
+    rows = cur.fetchall()  # récupère les résultats stockés
+    for row in rows:  # Lit chaque résultat un à un 
+        print(row)  # affiche les tupples
     cur.close()
     db.close()
