@@ -15,11 +15,10 @@ if __name__ == "__main__":
         port=3306,
         user=mysql_username,
         passwd=mysql_password,
-        db=database_name,
-        charset="utf8")
+        db=database_name)
     cur = db.cursor()  # je créer le stylo
     cur.execute(
-        "SELECT * FROM states WHERE LEFT(name, 1) = 'N' ORDER BY id ASC"
+        "SELECT * FROM states WHERE BINARY LEFT(name, 1) = 'N' ORDER BY id ASC"
         )  # j'écris ma requête avec le stylo
     rows = cur.fetchall()  # récupère les résultats stockés
     for row in rows:  # Lit chaque résultat un à un
