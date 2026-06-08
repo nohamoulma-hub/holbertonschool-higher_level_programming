@@ -30,7 +30,7 @@ if __name__ == "__main__":
     cities_name = cursor.fetchall()
 
     cities = [row[1] for row in cities_name]
-    print(",".join(cities))
+    print(", ".join(cities))
 
     cursor.close()
     db.close()
