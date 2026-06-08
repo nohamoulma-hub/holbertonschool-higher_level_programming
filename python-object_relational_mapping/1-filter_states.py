@@ -25,3 +25,4 @@ if __name__ == "__main__":
         print(row)  # affiche les tupples
     cur.close()
     db.close()
+# chmod +x pour le checker
