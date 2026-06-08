@@ -21,7 +21,7 @@ if __name__ == "__main__":
         "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
         )  # j'écris ma requête avec le stylo
     rows = cur.fetchall()  # récupère les résultats stockés
-    for row in rows:  # Lit chaque résultat un à un 
+    for row in rows:  # Lit chaque résultat un à un
         print(row)  # affiche les tupples
     cur.close()
     db.close()
