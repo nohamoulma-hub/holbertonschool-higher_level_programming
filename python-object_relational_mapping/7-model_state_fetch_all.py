@@ -29,3 +29,4 @@ if __name__ == "__main__":
     for state in result_query:
         print(f'{state.id}: {state.name}')
     # on affiche le résultat
+    session.close()
