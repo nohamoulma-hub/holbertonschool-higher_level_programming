@@ -15,11 +15,11 @@ if __name__ == "__main__":
     mysql_password = sys.argv[2]
     database_name = sys.argv[3]
 
-    engine = create_engine
-    (
+    connection_url = (
         f'mysql+mysqldb://{mysql_username}:'
         f'{mysql_password}@localhost:3306/{database_name}'
         )
+    engine = create_engine(connection_url, pool_pre_ping=True)
 
     Session = sessionmaker(bind=engine)  # on retourne une classe
     session = Session()  # on retourne la vraie session (une instance)
