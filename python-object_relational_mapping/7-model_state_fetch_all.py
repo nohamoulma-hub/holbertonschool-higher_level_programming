@@ -20,6 +20,7 @@ if __name__ == "__main__":
         f'{mysql_password}@localhost:3306/{database_name}'
         )
     engine = create_engine(connection_url, pool_pre_ping=True)
+    # vérifie que la connection n'est pas morte
 
     Session = sessionmaker(bind=engine)  # on retourne une classe
     session = Session()  # on retourne la vraie session (une instance)
