@@ -13,12 +13,14 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/":
             self.send_response(200)  # envoie le code de statut
+            self.send_header("Content-Type", "text/plain")
             self.end_headers()  # termine les headers
             self.wfile.write(
                 "Hello, this is a simple API!".encode())  # envoie le contenu
 
         elif self.path == "/data":
             self.send_response(200)
+            self.send_header("Content-Type", "application/json")
             self.end_headers()
             self.wfile.write(
                 json.dumps
@@ -28,11 +30,13 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
 
         elif self.path == "/status":
             self.send_response(200)
+            self.send_header("Content-Type", "text/plain")
             self.end_headers()
             self.wfile.write("OK".encode())
 
         else:
             self.send_response(404)
+            self.send_header("Content-Type", "text/plain")
             self.end_headers()
             self.wfile.write("Endpoint not found".encode())
 
